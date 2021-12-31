@@ -1,1 +1,1 @@
-web: gunicorn NEWSHQ.wsgi
+web: gunicorn NewsHQ.wsgi
