@@ -16,7 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
-
+# Homepage by default takes you to the news app
 urlpatterns = [
     path('', include('news.urls')),
     path('admin/', admin.site.urls),

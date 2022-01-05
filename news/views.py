@@ -101,6 +101,7 @@ def display(request):
         for article in parent_website_result.article_set.all():
             articles.append(article)
 
+    # Prevents duplication of articles
     articles = list(set(articles))
 
     context = {'articles': articles,

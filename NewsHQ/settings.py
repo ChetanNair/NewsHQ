@@ -12,6 +12,8 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 
 from pathlib import Path
 import os
+
+# Helps in deployment --> Serves up static files using whitenoise automatically
 import django_on_heroku  # type: ignore
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -22,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-#SECRET_KEY = 'django-insecure-u&$y%=bwvp_dri+&6h@96o7+f%$9%_$!y@9+vyb8=v7l3jyltw'
+# Secret Key and Debug values obtained set as environment variables. Reduces security risks.
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
@@ -32,7 +34,7 @@ ALLOWED_HOSTS = ['newshq.herokuapp.com']
 
 
 # Application definition
-
+# Added news.apps.NewsConfig
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -119,6 +121,8 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
+# Static Root needed for deployment. Pathlib used to join paths using /
+
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 STATIC_URL = 'static/'
 
@@ -128,4 +132,5 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+# Added after installing django_on_heroku
 django_on_heroku.settings(locals())
