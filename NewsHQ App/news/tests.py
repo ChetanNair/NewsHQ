@@ -20,3 +20,4 @@ class ArticleTestCase(TestCase):
 class WebsiteTestCase(TestCase):
     def setUp(self):
         self.website = Website.objects.create(url="https://reuters.com")
+        self.website = Website.objects.create(url="https://apnews.com")
