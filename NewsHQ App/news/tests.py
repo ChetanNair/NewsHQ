@@ -4,7 +4,7 @@ from .models import Article, Website
 
 class ArticleTestCase(TestCase):
     def setUp(self):
-        self.website_ = "https:retuers.com"
+        self.website_ = "https:://reuters.com"
         self.website = Website.objects.create(url=self.website_)
         self.article = Article.objects.create(
             title="Testing",
